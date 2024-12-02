@@ -45,11 +45,11 @@
 
     <!-- Gallery Section (Posts) -->
     <h4 class="text-center mb-4">Posts</h4>
-    <div class="row" id="post-gallery" style="display: grid; gap: 1rem;">
+    <div class="row" id="post-gallery" style="display: grid; gap: 1rem; grid-template-columns: repeat(3, 1fr);">
         @foreach ($user->posts as $post)
             <div class="post-item">
-                <div class="card gallery-item position-relative">
-                    <img src="{{ asset('storage/' . $post->file_path) }}" class="card-img-top" alt="Post Image">
+                <div class="card gallery-item position-relative" style="aspect-ratio: 1; overflow: hidden;">
+                    <img src="{{ asset('storage/' . $post->file_path) }}" class="card-img-top" alt="Post Image" style="object-fit: cover;">
                     <div class="gallery-item-info position-absolute w-100 h-100 d-flex justify-content-center align-items-center text-white">
                         <div class="text-center">
                             <p>{{ $post->caption }}</p>
@@ -62,8 +62,6 @@
             </div>
         @endforeach
     </div>
-
-    
 </div>
 
 @endsection
@@ -74,7 +72,7 @@
     function adjustFeedLayout() {
         const feedCount = document.getElementById('feeds_per_row').value;  // Get selected number of feeds per row
         const postGallery = document.getElementById('post-gallery');
-        
+
         // Set the grid template columns to create the specified number of columns
         postGallery.style.gridTemplateColumns = `repeat(${feedCount}, 1fr)`;  // Adjust columns for grid layout
     }
