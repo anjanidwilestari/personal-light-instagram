@@ -1,0 +1,14 @@
+step by step to create laravel personal light instagram
+1. composer create-project laravel/laravel personal-light-instagram
+2. cd personal-light-instagram
+3. create connection sqlite using TablePlus
+4. composer require maatwebsite/excel barryvdh/laravel-dompdf
+5. composer require laravel/ui
+6. php artisan ui bootstrap --auth
+7. npm install && npm run dev
+
+
+kalau mau run program
+1. karena laptop saat ini pakai php 8.1 maka lakukan command pada terminal laragon
+2. npm run dev
+3. php artisan serve
