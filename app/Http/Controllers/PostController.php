@@ -3,7 +3,12 @@
 namespace App\Http\Controllers;
 use App\Models\Post;
 
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
+
+
 
 // app/Http/Controllers/PostController.php
 
@@ -23,7 +28,7 @@ class PostController extends Controller
 
     // Handle the file upload
     $file = $request->file('file');
-    $filePath = $file->store('posts');  // Store the file in the 'posts' folder in storage
+    $filePath = $file->store('posts', 'public');  // Store the file in the 'posts', 'public' folder in storage
     $fileType = $file->getClientMimeType();  // Get the MIME type of the file
 
     // Create a new post
@@ -41,5 +46,31 @@ class PostController extends Controller
     {
         return view('posts.show', compact('post'));
     }
+
+    // app/Http/Controllers/PostController.php
+
+    public function destroy(Post $post)
+    {
+        // Memastikan hanya pemilik post yang bisa menghapus
+        if (auth()->id() != $post->user_id) {
+            return redirect()->route('profile.index')->with('error', 'Unauthorized action');
+        }
+
+        // Hapus file terkait jika ada
+        if (Storage::exists('public/' . $post->file_path)) {
+            Storage::delete('public/' . $post->file_path);
+        }
+
+        // Hapus post dari database
+        $post->delete();
+
+        return redirect()->route('profile.index')->with('success', 'Post deleted successfully!');
+    }
+
+
+
+
 }
+
+
 
