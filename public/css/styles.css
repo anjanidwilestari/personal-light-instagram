@@ -84,3 +84,34 @@ footer {
     position: relative;
     z-index: 2; /* Ini memastikan tombol tetap di atas */
 }
+
+#post-gallery {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(3, 1fr); /* Default 3 columns */
+}
+
+@media (max-width: 768px) {
+    #post-gallery {
+        grid-template-columns: repeat(
+            2,
+            1fr
+        ); /* 2 columns for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    #post-gallery {
+        grid-template-columns: 1fr; /* 1 column for very small screens */
+    }
+}
+
+#post-gallery {
+    display: grid;
+    gap: 1rem; /* Space between grid items */
+}
+
+.post-item {
+    /* Optional: Set maximum width for items */
+    max-width: 100%;
+}
