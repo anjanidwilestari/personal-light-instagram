@@ -12,7 +12,8 @@ use App\Http\Controllers\ArchiveController;
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/', [ProfileController::class, 'index'])->name('profile.index');
-    Route::post('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
 
     Route::resource('posts', PostController::class)->only(['create', 'store', 'show']);
     Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');

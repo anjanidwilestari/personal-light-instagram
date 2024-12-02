@@ -30,6 +30,8 @@
 
         <!-- Create Post Button -->
         <a href="{{ route('posts.create') }}" class="btn btn-primary mb-4">Create Post</a>
+        <a href="{{ route('archive.index') }}" class="btn btn-primary mb-4">Archive</a>
+        <a href="{{ route('profile.edit') }}" class="btn btn-primary mb-4">Edit Profile</a>
     </div>
 
     <!-- Gallery Section (Posts) -->
