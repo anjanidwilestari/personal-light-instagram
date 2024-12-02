@@ -30,6 +30,8 @@
 
         <!-- Create Post Button -->
         <a href="{{ route('posts.create') }}" class="btn btn-primary mb-4">Create Post</a>
+        <a href="{{ route('profile.edit') }}" class="btn btn-warning mb-4">Edit Profile</a>
+        <a href="{{ route('archive.index') }}" class="btn btn-success mb-4">Archive</a>
     </div>
 
     <!-- Feed Per Row Section -->
@@ -48,17 +50,14 @@
     <div class="row" id="post-gallery" style="display: grid; gap: 1rem; grid-template-columns: repeat(3, 1fr);">
         @foreach ($user->posts as $post)
             <div class="post-item">
-                <div class="card gallery-item position-relative" style="aspect-ratio: 1; overflow: hidden;">
+                <a href="{{ route('posts.show', $post) }}" class="card gallery-item position-relative" style="aspect-ratio: 1; overflow: hidden;">
                     <img src="{{ asset('storage/' . $post->file_path) }}" class="card-img-top" alt="Post Image" style="object-fit: cover;">
                     <div class="gallery-item-info position-absolute w-100 h-100 d-flex justify-content-center align-items-center text-white">
                         <div class="text-center">
                             <p>{{ $post->caption }}</p>
                         </div>
                     </div>
-                    <div class="card-body text-center">
-                        <a href="{{ route('posts.show', $post) }}" class="btn btn-link w-100">View</a>
-                    </div>
-                </div>
+                </a>
             </div>
         @endforeach
     </div>

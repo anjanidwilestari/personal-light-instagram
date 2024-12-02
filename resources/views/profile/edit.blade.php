@@ -29,12 +29,6 @@
             <textarea name="bio" id="bio" class="form-control">{{ old('bio', $user->bio) }}</textarea>
         </div>
 
-        <!-- Feed Per Row -->
-        <div class="form-group">
-            <label for="feeds_per_row">Feeds Per Row</label>
-            <input type="number" name="feeds_per_row" id="feeds_per_row" class="form-control" value="{{ old('feeds_per_row', 3) }}" min="1" max="5">
-        </div>
-
         <!-- Submit Button -->
         <div class="form-group text-center">
             <button type="submit" class="btn btn-primary">Save Changes</button>
