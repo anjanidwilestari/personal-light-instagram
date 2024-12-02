@@ -7,3 +7,70 @@ footer {
     background-color: #f8f9fa;
     color: #6c757d;
 }
+
+/* Profile Section Styling */
+.profile img {
+    border: 5px solid #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.profile h3 {
+    font-size: 2rem;
+    margin-top: 15px;
+}
+
+.profile p {
+    font-size: 1.1rem;
+    color: #777;
+}
+
+.profile .d-flex div {
+    text-align: center;
+}
+
+.profile .d-flex div h5 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.profile .d-flex div small {
+    font-size: 1rem;
+    color: #aaa;
+}
+
+/* Gallery Section Styling */
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.gallery-item img {
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-item-info {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 8px;
+}
+
+.gallery-item:hover .gallery-item-info {
+    opacity: 1;
+}
+
+.gallery-item-info p {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.card-body a {
+    font-size: 1rem;
+}
