@@ -74,3 +74,13 @@ footer {
 .card-body a {
     font-size: 1rem;
 }
+
+.gallery-item-info {
+    position: absolute;
+    z-index: 1; /* Ini memastikan konten hover berada di bawah tombol */
+}
+
+.card-body .btn {
+    position: relative;
+    z-index: 2; /* Ini memastikan tombol tetap di atas */
+}

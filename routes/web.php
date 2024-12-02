@@ -15,11 +15,12 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/profile', [ProfileController::class, 'update'])->name('profile.update');
 
     Route::resource('posts', PostController::class)->only(['create', 'store', 'show']);
+    Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
     Route::post('/posts/{post}/comments', [CommentController::class, 'store'])->name('comments.store');
     Route::post('/posts/{post}/likes', [LikeController::class, 'store'])->name('likes.store');
     Route::delete('/posts/{post}/likes', [LikeController::class, 'destroy'])->name('likes.destroy');
 
-    Route::get('/archive', [ArchiveController::class, 'index'])->name('archieve.index');
+    Route::get('/archive', [ArchiveController::class, 'index'])->name('archive.index');
     Route::post('/archive/download', [ArchiveController::class, 'download'])->name('archive.download');
 });
 
